@@ -15,9 +15,9 @@ class CreateOpportunitiesTable extends Migration
     {
         Schema::create('opportunities', function (Blueprint $table) {
             $table->id();
-            $table->string('amount');
+            $table->double('amount');
             $table->string('name');
-            $table->string('CloseDate');
+            $table->string('closeDate');
             $table->bigInteger('contactId')->unsigned()->nullable();
             $table->foreign('contactId')->references('id')->on('contacts')->onDelete('cascade');
             $table->bigInteger('statusId')->unsigned()->nullable();
