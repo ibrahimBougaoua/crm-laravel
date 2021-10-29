@@ -15,6 +15,7 @@ class CreateTaskTypesTable extends Migration
     {
         Schema::create('task_types', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
             $table->timestamps();
         });
     }

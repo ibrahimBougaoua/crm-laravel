@@ -15,6 +15,13 @@ class CreateOpportunitiesTable extends Migration
     {
         Schema::create('opportunities', function (Blueprint $table) {
             $table->id();
+            $table->string('amount');
+            $table->string('name');
+            $table->string('CloseDate');
+            $table->bigInteger('contactId')->unsigned()->nullable();
+            $table->foreign('contactId')->references('id')->on('contacts')->onDelete('cascade');
+            $table->bigInteger('statusId')->unsigned()->nullable();
+            $table->foreign('statusId')->references('id')->on('opportunity_statuses')->onDelete('cascade');
             $table->timestamps();
         });
     }
